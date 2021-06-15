@@ -252,7 +252,6 @@ const RestoFriends = () => {
   const styles = StyleSheet.create({
     container: {
       height: 350,
-      paddingHorizontal: 24,
       paddingVertical: 32,
       backgroundColor: GlobalColors.backgroundGrey,
     },
@@ -260,6 +259,7 @@ const RestoFriends = () => {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      paddingHorizontal: 24,
     },
     restoFriends: {
       ...TextStyles.titleDark,
@@ -268,7 +268,8 @@ const RestoFriends = () => {
       ...TextStyles.subtitleDarkRed,
     },
     list: {
-      marginTop: 24,
+      paddingTop: 24,
+      paddingHorizontal: 24,
     },
   });
   return (
@@ -291,7 +292,7 @@ const RestoFriends = () => {
   );
 };
 
-const RestoFriendCard = ({uri, name}) => {
+const RestoFriendCard = ({uri, name, style}) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'white',
@@ -300,9 +301,10 @@ const RestoFriendCard = ({uri, name}) => {
       width: 170,
       shadowRadius: 8,
       alignSelf: 'flex-start',
-      shadowOpacity: 0.05,
+      shadowOpacity: 0.09,
+      // shadowOpacity: 1,
       borderRadius: 8,
-      shadowOffset: {height: 4},
+      shadowOffset: {height: 4, width: -2},
     },
     remove: {
       position: 'absolute',
@@ -336,7 +338,7 @@ const RestoFriendCard = ({uri, name}) => {
     },
   });
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Icon icon={Icons.remove} size={14} style={styles.remove} />
       <Avatar uri={uri} size={48} />
       <Text style={styles.name}>{name}</Text>
