@@ -6,8 +6,8 @@ import Icons from '../icons';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    width: 36,
-    height: 36,
+    width: 32,
+    height: 32,
     borderRadius: 9999,
     alignItems: 'center',
     justifyContent: 'center',

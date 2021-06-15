@@ -7,4 +7,6 @@ export default Icons = {
   heart: require('./heart.png'),
   comment: require('./comment.png'),
   remove: require('./remove.png'),
+  more: require('./more.png'),
+
 };
