@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   FlatList,
   Platform,
+  StatusBar,
 } from 'react-native';
 import {Rating, Theme} from '../src/components/Rating';
 
@@ -43,6 +44,8 @@ const postedAt = 'Posted 2 hours ago';
 export default Screen = () => {
   return (
     <>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
+
       <SafeAreaView style={{flex: 0, backgroundColor: 'white'}} />
       <SafeAreaView
         style={{flex: 1, backgroundColor: GlobalColors.backgroundGrey}}>

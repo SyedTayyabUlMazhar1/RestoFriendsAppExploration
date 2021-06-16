@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     shadowOffset: {height: 8},
     shadowRadius: 12,
     shadowColor: GlobalColors.darkRed,
+    elevation: 16,
   },
 });
 export default FloatingActionButton = () => {
