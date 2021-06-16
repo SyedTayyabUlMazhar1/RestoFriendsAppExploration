@@ -9,6 +9,7 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  Platform,
 } from 'react-native';
 import {Rating, Theme} from '../src/components/Rating';
 
@@ -27,7 +28,6 @@ const CommonHorizontalMargin = 20;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 8,
   },
   scrollView: {
     // marginTop: 40,
@@ -42,29 +42,47 @@ const postedAt = 'Posted 2 hours ago';
 
 export default Screen = () => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <View style={styles.container}>
-        <SearchBar />
-        <ScrollView style={styles.scrollView}>
-          <ReviewInfo />
-          <ReviewResturant />
-          <LovesComments />
-          <RestoFriends />
-        </ScrollView>
-      </View>
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={{flex: 0, backgroundColor: 'white'}} />
+      <SafeAreaView
+        style={{flex: 1, backgroundColor: GlobalColors.backgroundGrey}}>
+        <WhiteView style={styles.container}>
+          <WhiteView>
+            <SearchBar />
+          </WhiteView>
+
+          <ScrollView style={styles.scrollView} bounces={false}>
+            <WhiteView>
+              <ReviewInfo />
+              <ReviewResturant />
+              <LovesComments />
+            </WhiteView>
+
+            <RestoFriends />
+          </ScrollView>
+        </WhiteView>
+      </SafeAreaView>
+    </>
   );
 };
 
+const WhiteView = props => {
+  return (
+    <View style={{backgroundColor: 'white'}} {...props}>
+      {props.children}
+    </View>
+  );
+};
 const SearchBar = () => {
   const placeholder = 'Find a resturant...';
   const styles = StyleSheet.create({
     container: {
       borderRadius: 6,
       borderColor: '#eaeaea',
-      paddingVertical: 10,
+      paddingVertical: 0,
       paddingHorizontal: 8,
-      marginBottom: 8,
+      marginVertical: 8,
+      alignItems: 'center',
       borderWidth: 1,
       flexDirection: 'row',
       marginHorizontal: CommonHorizontalMargin,
@@ -73,6 +91,7 @@ const SearchBar = () => {
       color: GlobalColors.light,
       fontSize: 16,
       fontFamily: Fonts.semibold,
+      height: 40,
       flex: 1,
       marginLeft: 12,
     },
@@ -117,8 +136,8 @@ const ReviewInfo = () => {
       marginTop: 8,
     },
     ratingColumn: {
-      minWidth: 100,
-      maxWidth: 120,
+      // minWidth: 100,
+      // maxWidth: 120,
       alignItems: 'center',
       marginLeft: 'auto',
       justifyContent: 'space-evenly',
@@ -129,7 +148,7 @@ const ReviewInfo = () => {
       <Avatar uri={profilePic} size={52} />
       <View style={styles.textColumn}>
         <SingleLineText style={styles.name}>{name}</SingleLineText>
-        <Text style={styles.rated}>{rated}</Text>
+        <SingleLineText style={styles.rated}>{rated}</SingleLineText>
         <View style={styles.postedAtRow}>
           <Icon icon={Icons.clock} size={18} />
           <Text style={styles.postedAt}>{postedAt}</Text>
@@ -138,7 +157,7 @@ const ReviewInfo = () => {
       <View style={styles.ratingColumn}>
         <Rating value={5} theme={Theme.light} />
         <SingleLineText style={TextStyles.subtitleDarkRed}>
-          Outstanding!
+          Outstanding !
         </SingleLineText>
       </View>
     </View>
@@ -153,6 +172,9 @@ const resturantAddress = 'Portugal Street View';
 const ReviewResturant = () => {
   const styles = StyleSheet.create({
     container: {
+      elevation: 16, //Android Only
+      borderRadius: 100, //Android Only
+      shadowColor: GlobalColors.darkRed, //Android Only
       height: 300,
       flexDirection: 'column-reverse',
       marginHorizontal: CommonHorizontalMargin,

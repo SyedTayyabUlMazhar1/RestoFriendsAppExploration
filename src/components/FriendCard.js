@@ -11,6 +11,7 @@ import SingleLineText from './SingleLineText';
 
 const styles = StyleSheet.create({
   container: {
+    elevation: 2,
     backgroundColor: 'white',
     padding: 24,
     alignItems: 'center',

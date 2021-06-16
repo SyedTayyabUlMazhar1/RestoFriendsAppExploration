@@ -71,6 +71,9 @@ export default App = () => {
             // backgroundColor: '#123',
             height: 90,
           },
+          safeAreaInsets: {
+            bottom: 0,
+          },
         }}>
         <Tab.Screen
           name={Screens.Home.name}
