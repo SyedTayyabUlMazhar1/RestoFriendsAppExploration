@@ -47,23 +47,18 @@ export default Screen = () => {
       <StatusBar backgroundColor="white" barStyle="dark-content" />
 
       <SafeAreaView style={{flex: 0, backgroundColor: 'white'}} />
-      <SafeAreaView
-        style={{flex: 1, backgroundColor: GlobalColors.backgroundGrey}}>
-        <WhiteView style={styles.container}>
-          <WhiteView>
-            <SearchBar />
-          </WhiteView>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <View style={styles.container}>
+          <SearchBar />
 
           <ScrollView style={styles.scrollView} bounces={false}>
-            <WhiteView>
-              <ReviewInfo />
-              <ReviewResturant />
-              <LovesComments />
-            </WhiteView>
+            <ReviewInfo />
+            <ReviewResturant />
+            <LovesComments />
 
             <RestoFriends />
           </ScrollView>
-        </WhiteView>
+        </View>
       </SafeAreaView>
     </>
   );
