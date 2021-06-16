@@ -128,9 +128,7 @@ const ReviewInfo = () => {
     <View style={styles.container}>
       <Avatar uri={profilePic} size={52} />
       <View style={styles.textColumn}>
-        <Text style={styles.name} numberOfLines={1}>
-          {name}
-        </Text>
+        <SingleLineText style={styles.name}>{name}</SingleLineText>
         <Text style={styles.rated}>{rated}</Text>
         <View style={styles.postedAtRow}>
           <Icon icon={Icons.clock} size={18} />
@@ -139,9 +137,9 @@ const ReviewInfo = () => {
       </View>
       <View style={styles.ratingColumn}>
         <Rating value={5} theme={Theme.light} />
-        <Text style={TextStyles.subtitleDarkRed} numberOfLines={1}>
+        <SingleLineText style={TextStyles.subtitleDarkRed}>
           Outstanding!
-        </Text>
+        </SingleLineText>
       </View>
     </View>
   );
